@@ -42,6 +42,11 @@ async def ping(ctx):
     print ("User has pinged")
 
 @bot.command(pass_context=True)
+async def source(ctx):
+    await bot.say("Source https://github.com/Bildcraft1/easy-bot ")
+    print ("User ha guardato la source del bot")
+
+@bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
     embed = discord.Embed(title="{} Info".format(ctx.message.author.name), description="Qui ci sono le informazioni che ho trovato", color=0xff00b3)
     embed.add_field(name="Nome", value=ctx.message.author.name, inline=True)
@@ -108,8 +113,21 @@ async def help(ctx):
     embed.add_field(name=';;;echo <testo>', value='Il Bot ripetera il messaggio ', inline=False)
     embed.add_field(name=';;;info <username>', value='Il Bot farà vedere le info dell utente seleezzionato', inline=False)
     embed.add_field(name=';;;serverinfo', value='Il Bot farà vedere le info del server', inline=False)
+    embed.add_field(name=';;;source', value='Il Bot farà vedere la source del bot', inline=False)
     embed.add_field(name='Bot Info', value='Versione 2.1 | Beta', inline=True)
 
     await bot.send_message(author, embed=embed)
 
-bot.run("Your bot token")
+@bot.command(pass_context=True)
+async def opt(ctx):
+    author = ctx.message.author
+
+    embed = discord.Embed(
+        colour = discord.Colour.dark_green()
+    )
+
+    embed.set_author(name='opt')
+    embed.add_field(name='OPT', value='Condor Spamma', inline=False)
+    await bot.send_message(author, embed=embed)
+
+bot.run("UR TOKEN")
