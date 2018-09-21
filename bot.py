@@ -89,6 +89,11 @@ async def ban(ctx, user: discord.Member):
     await bot.say("``{} was banned``".format(user.name))
     await bot.ban(user)
 
+@bot.command(pass_context=True)
+async def load(ctx):
+    embed = discord.Embed(name="{} info".format(ctx.message.server.name), description="Load .cfg files", color=0x00ff00)
+    embed.add_field(name="Loading .cfg files")
+
 
 @bot.command(pass_context=True)
 async def embed(ctx):
